@@ -1,0 +1,189 @@
+/* ═══════════════════════════════════════════════
+   Dashboard — professional layout styles
+   Reuses global tokens from index.css
+═══════════════════════════════════════════════ */
+
+.dash-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.dash-head-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.dash-head-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.dash-head-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+}
+
+/* ── KPI cards ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow .18s, transform .18s, border-color .18s;
+  position: relative;
+  overflow: hidden;
+}
+.kpi:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--border-2);
+}
+.kpi-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kpi-icon {
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.kpi-icon svg { width: 20px; height: 20px; }
+.kpi-trend {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.kpi-trend.up   { color: #047857; background: #ECFDF5; }
+.kpi-trend.down { color: #B91C1C; background: #FEF2F2; }
+.kpi-trend.flat { color: var(--text-muted); background: var(--bg); }
+.kpi-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.kpi-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.kpi-foot {
+  font-size: 11.5px;
+  color: var(--text-light);
+}
+
+/* Icon color tints */
+.tint-blue   { background: #EFF6FF; color: #2563EB; }
+.tint-green  { background: #ECFDF5; color: #059669; }
+.tint-orange { background: #FFF3EC; color: #EA580C; }
+.tint-purple { background: #F5F3FF; color: #7C3AED; }
+.tint-cyan   { background: #ECFEFF; color: #0891B2; }
+.tint-red    { background: #FEF2F2; color: #DC2626; }
+
+/* ── Profit banner ── */
+.profit-banner {
+  background: linear-gradient(120deg, var(--navy) 0%, #0a2547 55%, var(--primary) 130%);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-shadow: var(--shadow-md);
+}
+.profit-label {
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.profit-label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.profit-month-input {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  color-scheme: dark;   /* makes the native calendar popup + icon readable on the dark banner */
+}
+.profit-month-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+.profit-value {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.profit-metrics {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.profit-metric-label { color: rgba(255,255,255,0.6); font-size: 11px; margin-bottom: 3px; }
+.profit-metric-value { color: #fff; font-weight: 700; font-size: 15px; }
+
+/* ── Section headers inside cards already styled globally ── */
+.dash-empty {
+  text-align: center;
+  padding: 26px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  font-size: 11.5px;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+.chart-legend .dot {
+  width: 10px; height: 10px; border-radius: 3px; display: inline-block; margin-right: 5px;
+}
+
+@media (max-width: 640px) {
+  .profit-value { font-size: 24px; }
+  .kpi-value { font-size: 21px; }
+}
